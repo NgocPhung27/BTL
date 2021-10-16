@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Quanlydiemhocsinh.Controllers
+namespace QLDiemHocSinh.Controllers
 {
     public class HomeController : Controller
     {

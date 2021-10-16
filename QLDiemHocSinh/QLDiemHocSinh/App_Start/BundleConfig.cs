@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace Quanlydiemhocsinh
+namespace QLDiemHocSinh
 {
     public class BundleConfig
     {
