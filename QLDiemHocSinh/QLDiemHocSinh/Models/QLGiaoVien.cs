@@ -12,16 +12,12 @@ namespace QLDiemHocSinh.Models
     {
         [Key]
         public string MaGV { get; set; }
-
         public string TenGV { get; set; }
-
         public string GioiTinh { get; set; }
-
         public string NgaySinh { get; set; }
-
         public string SoDienThoai { get; set; }
-
         public string DiaChi { get; set; }
         public string Lop { get; set; }
+        public string AnhGV { get; set; }
     }
 }

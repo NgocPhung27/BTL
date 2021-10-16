@@ -154,6 +154,10 @@
     <Compile Include="Migrations\202110160731360_create_table_lop.Designer.cs">
       <DependentUpon>202110160731360_create_table_lop.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202110160818291_AnhGV_giaovien.cs" />
+    <Compile Include="Migrations\202110160818291_AnhGV_giaovien.Designer.cs">
+      <DependentUpon>202110160818291_AnhGV_giaovien.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DiemHocSinh.cs" />
     <Compile Include="Models\QLGiaoVien.cs" />
@@ -241,6 +245,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202110160731360_create_table_lop.resx">
       <DependentUpon>202110160731360_create_table_lop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202110160818291_AnhGV_giaovien.resx">
+      <DependentUpon>202110160818291_AnhGV_giaovien.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
