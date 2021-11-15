@@ -13,13 +13,53 @@ namespace QLDiemHocSinh.Controllers
     public class QLMonHocsController : Controller
     {
         private QLDiemHocSinhDbContext db = new QLDiemHocSinhDbContext();
+        AutoGenerateKey aukey = new AutoGenerateKey();
 
-        // GET: QLMonHocs
+        // GET: QLHocSinhs
         public ActionResult Index()
         {
             return View(db.MonHocs.ToList());
         }
+        public ActionResult Create()
+        {
+            var mhID = "";
+            var countMH = db.MonHocs.Count();
+            if (countMH == 0)
+            {
+                mhID = "MH001";
+            }
+            else
+            {
+                //Lấy giá trị MaHS moi nhat
+                var MaMH = db.MonHocs.ToList().OrderByDescending(m => m.MaMH).FirstOrDefault().MaMH;
+                //sinh MaHS tự dộng
+                mhID = aukey.GenerateKey(MaMH);
+            }
+            ViewBag.MaMH = mhID;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Create(QLMonHoc mh)
 
+        {
+            var countMH = db.MonHocs.Count();
+            if (countMH == 0)
+            {
+                mh.MaMH = "MH001";
+            }
+            else
+            {
+                //Lấy giá trị MaHS moi nhat
+                var MaMH = db.MonHocs.ToList().OrderByDescending(m => m.MaMH).FirstOrDefault().MaMH;
+                //sinh MaHS tự dộng
+                mh.MaMH = aukey.GenerateKey(MaMH);
+            }
+            //luu thông tin vao database
+            db.MonHocs.Add(mh);
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
         // GET: QLMonHocs/Details/5
         public ActionResult Details(string id)
         {
@@ -32,29 +72,6 @@ namespace QLDiemHocSinh.Controllers
             {
                 return HttpNotFound();
             }
-            return View(qLMonHoc);
-        }
-
-        // GET: QLMonHocs/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: QLMonHocs/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaMH,TenMH,GhiChu")] QLMonHoc qLMonHoc)
-        {
-            if (ModelState.IsValid)
-            {
-                db.MonHocs.Add(qLMonHoc);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
             return View(qLMonHoc);
         }
 

@@ -10,7 +10,7 @@ using QLDiemHocSinh.Models;
 
 namespace QLDiemHocSinh.Controllers
 {
-    public class QLLopsController : Controller
+    public class QLHocSinhsController : Controller
     {
         private QLDiemHocSinhDbContext db = new QLDiemHocSinhDbContext();
         AutoGenerateKey aukey = new AutoGenerateKey();
@@ -18,114 +18,117 @@ namespace QLDiemHocSinh.Controllers
         // GET: QLHocSinhs
         public ActionResult Index()
         {
-            return View(db.Lops.ToList());
+            return View(db.HocSinhs.ToList());
         }
         public ActionResult Create()
         {
-            var lopID = "";
-            var countlop = db.Lops.Count();
-            if (countlop == 0)
+            var hsID = "";
+            var countHS = db.HocSinhs.Count();
+            if (countHS == 0)
             {
-                lopID = "L001";
+                hsID ="HS001";
             }
             else
             {
                 //Lấy giá trị MaHS moi nhat
-                var Malop= db.Lops.ToList().OrderByDescending(m => m.MaLop).FirstOrDefault().MaLop;
+                var MaHS = db.HocSinhs.ToList().OrderByDescending(m => m.MaHS).FirstOrDefault().MaHS;
                 //sinh MaHS tự dộng
-                lopID = aukey.GenerateKey(Malop);
+                hsID = aukey.GenerateKey(MaHS);
             }
-            ViewBag.Malop = lopID;
+            ViewBag.MaHS = hsID;
             return View();
         }
         [HttpPost]
-        public ActionResult Create(QLLop lop)
+        public ActionResult Create(QLHocSinh hs)
+
         {
-            var countlop = db.Lops.Count();
-            if (countlop == 0)
+            var countHS = db.HocSinhs.Count();
+            if (countHS == 0)
             {
-                lop.MaLop = "L001";
+                hs.MaHS ="HS001";
             }
             else
             {
                 //Lấy giá trị MaHS moi nhat
-                var Malop = db.Lops.ToList().OrderByDescending(m => m.MaLop).FirstOrDefault().MaLop;
+                var MaHS = db.HocSinhs.ToList().OrderByDescending(m => m.MaHS).FirstOrDefault().MaHS;
                 //sinh MaHS tự dộng
-                lop.MaLop = aukey.GenerateKey(Malop);
+                hs.MaHS = aukey.GenerateKey(MaHS);
             }
             //luu thông tin vao database
-            db.Lops.Add(lop);
+            db.HocSinhs.Add(hs);
             db.SaveChanges();
+
             return RedirectToAction("Index");
         }
 
-        // GET: QLLops/Details/5
+        // GET: QLHocSinhs/Details/5
         public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            QLLop qLLop = db.Lops.Find(id);
-            if (qLLop == null)
+            QLHocSinh qLHocSinh = db.HocSinhs.Find(id);
+            if (qLHocSinh == null)
             {
                 return HttpNotFound();
             }
-            return View(qLLop);
+            return View(qLHocSinh);
         }
-        // GET: QLLops/Edit/5
+
+        // GET: QLHocSinhs/Edit/5
         public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            QLLop qLLop = db.Lops.Find(id);
-            if (qLLop == null)
+            QLHocSinh qLHocSinh = db.HocSinhs.Find(id);
+            if (qLHocSinh == null)
             {
                 return HttpNotFound();
             }
-            return View(qLLop);
+            return View(qLHocSinh);
         }
 
-        // POST: QLLops/Edit/5
+        // POST: QLHocSinhs/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaLop,TenLop,NienKhoa,SiSo,GhiChu")] QLLop qLLop)
+        public ActionResult Edit([Bind(Include = "MaHS,TenHS,GioiTinh,NgaySinh,SoDienThoai,DiaChi,Lop,AnhHS")] QLHocSinh qLHocSinh)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(qLLop).State = EntityState.Modified;
+                db.Entry(qLHocSinh).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(qLLop);
+            return View(qLHocSinh);
         }
 
-        // GET: QLLops/Delete/5
+        // GET: QLHocSinhs/Delete/5
         public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            QLLop qLLop = db.Lops.Find(id);
-            if (qLLop == null)
+            QLHocSinh qLHocSinh = db.HocSinhs.Find(id);
+            if (qLHocSinh == null)
             {
                 return HttpNotFound();
             }
-            return View(qLLop);
+            return View(qLHocSinh);
         }
 
-        // POST: QLLops/Delete/5
+        // POST: QLHocSinhs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            QLLop qLLop = db.Lops.Find(id);
-            db.Lops.Remove(qLLop);
+            QLHocSinh qLHocSinh = db.HocSinhs.Find(id);
+            db.HocSinhs.Remove(qLHocSinh);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

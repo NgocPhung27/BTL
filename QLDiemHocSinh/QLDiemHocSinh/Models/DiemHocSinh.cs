@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -7,6 +8,7 @@ namespace QLDiemHocSinh.Models
 {
     public class DiemHocSinh : QLHocSinh
     {
+        [Key]
         public string DiemMieng { get; set; }
         public string Diem15Phut { get; set; }
         public string Diem1Tiet { get; set; }
