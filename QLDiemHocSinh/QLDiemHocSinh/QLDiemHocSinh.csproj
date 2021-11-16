@@ -173,7 +173,6 @@
     <Compile Include="Models\QLDiemHocSinhDbContext.cs" />
     <Compile Include="Models\QLLop.cs" />
     <Compile Include="Models\QLMonHoc.cs" />
-    <Compile Include="Models\Role.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
