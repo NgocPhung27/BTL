@@ -9,7 +9,7 @@ using System.Web.Mvc;
 using QLDiemHocSinh.Models;
 
 namespace QLDiemHocSinh.Controllers
-{
+{ 
     public class QLHocSinhsController : Controller
     {
         private QLDiemHocSinhDbContext db = new QLDiemHocSinhDbContext();
