@@ -128,12 +128,20 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admins\AdminsAreaRegistration.cs" />
+    <Compile Include="Areas\Admins\HomeAdminController.cs" />
+    <Compile Include="Areas\GVClient\Controllers\HomeGVController.cs" />
+    <Compile Include="Areas\GVClient\Controllers\QLGiaoViensController.cs" />
+    <Compile Include="Areas\GVClient\GVClientAreaRegistration.cs" />
+    <Compile Include="Areas\HSClient\HSClientAreaRegistration.cs" />
+    <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\DiemHocSinhsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\QLGiaoViensController.cs" />
     <Compile Include="Controllers\QLHocSinhsController.cs" />
     <Compile Include="Controllers\QLLopsController.cs" />
     <Compile Include="Controllers\QLMonHocsController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -165,14 +173,27 @@
     <Compile Include="Migrations\202111020618015_create_table_diemhocsinh1.Designer.cs">
       <DependentUpon>202111020618015_create_table_diemhocsinh1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111170300485_%27create_table_accounts%27.cs" />
+    <Compile Include="Migrations\202111170300485_%27create_table_accounts%27.Designer.cs">
+      <DependentUpon>202111170300485_%27create_table_accounts%27.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111170302490_%27create_table_roles%27.cs" />
+    <Compile Include="Migrations\202111170302490_%27create_table_roles%27.Designer.cs">
+      <DependentUpon>202111170302490_%27create_table_roles%27.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AutoGenerateKey.cs" />
     <Compile Include="Models\DiemHocSinh.cs" />
+    <Compile Include="Models\Encrytion.cs" />
     <Compile Include="Models\QLGiaoVien.cs" />
     <Compile Include="Models\QLHocSinh.cs" />
     <Compile Include="Models\QLDiemHocSinhDbContext.cs" />
     <Compile Include="Models\QLLop.cs" />
     <Compile Include="Models\QLMonHoc.cs" />
+    <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\StringProcess.cs" />
+    <Compile Include="Models\UsersRoleProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -186,6 +207,19 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\Admins\Views\web.config" />
+    <Content Include="Areas\GVClient\Views\web.config" />
+    <Content Include="Areas\HSClient\Views\web.config" />
+    <Content Include="Areas\GVClient\Views\QLGiaoViens\Create.cshtml" />
+    <Content Include="Areas\GVClient\Views\QLGiaoViens\Delete.cshtml" />
+    <Content Include="Areas\GVClient\Views\QLGiaoViens\Details.cshtml" />
+    <Content Include="Areas\GVClient\Views\QLGiaoViens\Edit.cshtml" />
+    <Content Include="Areas\GVClient\Views\QLGiaoViens\Index.cshtml" />
+    <Content Include="Areas\Admins\Views\QLGiaoViens\Create.cshtml" />
+    <Content Include="Areas\Admins\Views\QLGiaoViens\Delete.cshtml" />
+    <Content Include="Areas\Admins\Views\QLGiaoViens\Details.cshtml" />
+    <Content Include="Areas\Admins\Views\QLGiaoViens\Edit.cshtml" />
+    <Content Include="Areas\Admins\Views\QLGiaoViens\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -236,9 +270,27 @@
     <Content Include="Views\QLGiaoViens\Details.cshtml" />
     <Content Include="Views\QLGiaoViens\Edit.cshtml" />
     <Content Include="Views\QLGiaoViens\Index.cshtml" />
+    <Content Include="Views\Accounts\Register.cshtml" />
+    <Content Include="Views\Accounts\Login.cshtml" />
+    <Content Include="Views\Roles\Create.cshtml" />
+    <Content Include="Views\Roles\Delete.cshtml" />
+    <Content Include="Views\Roles\Details.cshtml" />
+    <Content Include="Views\Roles\Edit.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admins\Controllers\" />
+    <Folder Include="Areas\Admins\Data\" />
+    <Folder Include="Areas\Admins\Views\HomeAdmin\" />
+    <Folder Include="Areas\Admins\Views\Shared\" />
+    <Folder Include="Areas\GVClient\Data\" />
+    <Folder Include="Areas\GVClient\Views\HomeAdmin\" />
+    <Folder Include="Areas\GVClient\Views\HomeGV\" />
+    <Folder Include="Areas\GVClient\Views\Shared\" />
+    <Folder Include="Areas\HSClient\Controllers\" />
+    <Folder Include="Areas\HSClient\Data\" />
+    <Folder Include="Areas\HSClient\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -274,6 +326,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111020618015_create_table_diemhocsinh1.resx">
       <DependentUpon>202111020618015_create_table_diemhocsinh1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111170300485_%27create_table_accounts%27.resx">
+      <DependentUpon>202111170300485_%27create_table_accounts%27.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111170302490_%27create_table_roles%27.resx">
+      <DependentUpon>202111170302490_%27create_table_roles%27.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -16,6 +16,8 @@ namespace QLDiemHocSinh.Models
         public virtual DbSet<DiemHocSinh> DiemHocSinhs { get; set; }
         public virtual DbSet<QLMonHoc> MonHocs { get; set; }
         public virtual DbSet<QLLop> Lops { get; set; }
+        public virtual DbSet<Account> Accounts { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
