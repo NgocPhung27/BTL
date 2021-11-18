@@ -13,40 +13,28 @@ namespace QLDiemHocSinh.Controllers
         QLDiemHocSinhDbContext db = new QLDiemHocSinhDbContext();
         Encrytion enc = new Encrytion();
         StringProcess strPro = new StringProcess();
-
-
         public ActionResult Login(string returnUrl)
-
         {
            if (CheckSession() == 1)
-
            {
-
                 return RedirectToAction("Index", "HomeAdmin", new { Area = "Admins" });
            }
             else if (CheckSession() == 2)
-
             {
-                return RedirectToAction("Index", "QLGiaoViens", new { Area = "GVClient" });
-
+                return RedirectToAction("Index", "QLGiaoViensClient", new { Area = "GVClient" });
             }
             ViewBag.ReturnUrl = returnUrl;
             return View();
-
         }
         [HttpPost]
         [AllowAnonymous]
-
         public ActionResult Login(Account acc, string returnUrl)
-
         {
             try
             {
                 if (!string.IsNullOrEmpty(acc.UseName) && !string.IsNullOrEmpty(acc.PassWord))
                 {
-
                     using (var db = new QLDiemHocSinhDbContext())
-
                     {
                         var passToMD5 = strPro.GetMD5(acc.PassWord);
                         var account = db.Accounts.Where(m => m.UseName.Equals(acc.UseName) && m.PassWord.Equals(passToMD5)).Count();
@@ -57,14 +45,11 @@ namespace QLDiemHocSinh.Controllers
                             Session["roleUser"] = acc.RoleID;
                             return RedirectTolocal(returnUrl);
                         }
-
                         ModelState.AddModelError("", "Thông tin đăng nhập chưa chính xác");
-
                     }
                 }
                 ModelState.AddModelError("", "Username and password is required.");
             }
-
             catch
             {
                 ModelState.AddModelError("", "Hệ thống đang được bảo trì, vui lòng liên hệ với quản trị viên");
@@ -91,8 +76,6 @@ namespace QLDiemHocSinh.Controllers
             }
             return View(acc);
         }
-
-
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
@@ -109,7 +92,7 @@ namespace QLDiemHocSinh.Controllers
                 }
                 else if (CheckSession() == 2)
                 {
-                    return RedirectToAction("Index", "QLGiaoViens", new { Area = "GVClient" });
+                    return RedirectToAction("Index", "QLGiaoViensClient", new { Area = "GVClient" });
                 }
             }
             if (Url.IsLocalUrl(returnUrl))
