@@ -27,7 +27,7 @@ namespace QLDiemHocSinh.Controllers
             else if (CheckSession() == 2)
 
             {
-                return RedirectToAction("Index", "GiaoViensClient", new { Area = "GVClient" });
+                return RedirectToAction("Index", "QLGiaoViens", new { Area = "GVClient" });
 
             }
             ViewBag.ReturnUrl = returnUrl;
@@ -109,7 +109,7 @@ namespace QLDiemHocSinh.Controllers
                 }
                 else if (CheckSession() == 2)
                 {
-                    return RedirectToAction("Index", "GiaoViensClient", new { Area = "GVClient" });
+                    return RedirectToAction("Index", "QLGiaoViens", new { Area = "GVClient" });
                 }
             }
             if (Url.IsLocalUrl(returnUrl))
@@ -121,7 +121,7 @@ namespace QLDiemHocSinh.Controllers
                 return RedirectToAction("Index", "Home");
             }
         }
-
+       //kiểm tra người dùng đăng nhập với quyền gì
         private int CheckSession()
         {
             using (var db = new QLDiemHocSinhDbContext())
@@ -136,7 +136,7 @@ namespace QLDiemHocSinh.Controllers
                         {
                             return 1;
                         }
-                        else if (role.ToString() == "client")
+                        else if (role.ToString() == "GV")
                         {
                             return 2;
                         }

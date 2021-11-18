@@ -10,12 +10,12 @@ namespace QLDiemHocSinh.Models
     {
         [Key]
         [Display(Name = "Tên tài khoản")]
-        [Required(ErrorMessage = "Tên tài khoản không được để trống !!!!")]
+        [Required(ErrorMessage = "Tên tài khoản không được để trống !")]
         public string UseName { get; set; }
         [Display(Name = "Mật Khẩu")]
-        [Required(ErrorMessage = "Mật Khẩu không được để trống !!!!")]
-
-        [DataType(DataType.Password)] //Dùng để biến kí tự thành "".""
+        [Required(ErrorMessage = "Mật Khẩu không được để trống !")]
+        //Dùng để biến kí tự thành "".""
+        [DataType(DataType.Password)] 
         public string PassWord { get; set; }
 
         [StringLength(10)]

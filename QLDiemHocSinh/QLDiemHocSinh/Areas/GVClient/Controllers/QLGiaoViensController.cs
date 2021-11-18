@@ -10,7 +10,7 @@ using QLDiemHocSinh.Models;
 
 namespace QLDiemHocSinh.Areas.GVClient.Controllers
 {
-    [Authorize(Roles = "")]
+    [Authorize(Roles = "GV")]
     public class QLGiaoViensController : Controller
     {
         private QLDiemHocSinhDbContext db = new QLDiemHocSinhDbContext();

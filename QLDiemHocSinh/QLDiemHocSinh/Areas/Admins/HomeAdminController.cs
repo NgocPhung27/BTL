@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace QLDiemHocSinh.Areas.Admins
 {
-    [Authorize(Roles = "")]
+    [Authorize(Roles = "Admin")]
     public class HomeAdminController : Controller
     {
         // GET: Admins/HomeAdmin
