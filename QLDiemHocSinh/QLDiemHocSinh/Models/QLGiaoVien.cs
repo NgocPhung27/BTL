@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace QLDiemHocSinh.Models
 {
@@ -18,6 +19,7 @@ namespace QLDiemHocSinh.Models
         public string SoDienThoai { get; set; }
         public string DiaChi { get; set; }
         public string Lop { get; set; }
+        [AllowHtml]
         public string AnhGV { get; set; }
     }
 }
