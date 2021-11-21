@@ -45,7 +45,7 @@
         @Html.DisplayFor(modelItem => item.SiSo)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.GhiChu)
+        @Html.Raw( item.GhiChu)
     </td>
     <td>
         @Html.ActionLink("Edit", "Edit", new { id = item.MaLop }) |

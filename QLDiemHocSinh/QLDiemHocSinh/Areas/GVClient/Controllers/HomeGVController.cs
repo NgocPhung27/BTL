@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace QLDiemHocSinh.Areas.GVClient.Controllers
 {
-    [Authorize(Roles = "")]
+    [Authorize(Roles = "GV")]
     public class HomeGVController : Controller
     {
         // GET: GVClient/HomeGV

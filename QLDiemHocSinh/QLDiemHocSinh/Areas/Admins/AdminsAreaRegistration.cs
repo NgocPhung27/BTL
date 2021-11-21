@@ -11,7 +11,6 @@ namespace QLDiemHocSinh.Areas.Admins
                 return "Admins";
             }
         }
-
         public override void RegisterArea(AreaRegistrationContext context) 
         {
             context.MapRoute(

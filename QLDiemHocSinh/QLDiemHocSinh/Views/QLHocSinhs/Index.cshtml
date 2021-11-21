@@ -63,7 +63,7 @@
         @Html.DisplayFor(modelItem => item.Lop)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.AnhHS)
+        @Html.Raw( item.AnhHS)
     </td>
     <td>
         @Html.ActionLink("Edit", "Edit", new { id = item.MaHS }) |

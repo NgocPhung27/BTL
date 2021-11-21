@@ -129,7 +129,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admins\AdminsAreaRegistration.cs" />
-    <Compile Include="Areas\Admins\HomeAdminController.cs" />
+    <Compile Include="Areas\Admins\Controllers\HomeAdminController.cs" />
     <Compile Include="Areas\GVClient\Controllers\HomeGVController.cs" />
     <Compile Include="Areas\GVClient\Controllers\QLGiaoViensClientController.cs" />
     <Compile Include="Areas\GVClient\GVClientAreaRegistration.cs" />
@@ -225,6 +225,7 @@
     <Content Include="Scripts\ckeditor\ckeditor.asp" />
     <Content Include="Scripts\ckeditor\ckeditor.js" />
     <Content Include="Scripts\ckeditor\ckeditor.pack" />
+    <Content Include="Areas\Admins\Views\_LayoutAdmin.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\ckeditor\ckeditor.php" />
     <Content Include="Scripts\ckeditor\ckeditor_basic.js" />
@@ -628,7 +629,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Admins\Controllers\" />
     <Folder Include="Areas\Admins\Data\" />
     <Folder Include="Areas\Admins\Views\HomeAdmin\" />
     <Folder Include="Areas\Admins\Views\Shared\" />

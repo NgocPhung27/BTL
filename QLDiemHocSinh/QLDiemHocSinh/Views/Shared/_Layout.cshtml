@@ -9,30 +9,31 @@
     @Scripts.Render("~/bundles/ckeditor")
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="Tieude">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("LOP", "Index", "QLLops")</li>
-                    <li>@Html.ActionLink("MONHOC", "Index", "QLMonHocs")</li>
-                    <li>@Html.ActionLink("DIEM", "Index", "Diemhocsinhs")</li>
-                    <li>@Html.ActionLink("QLHocSinh", "Index", "QLHocSinhs")</li>
-                    <li>@Html.ActionLink("QLGiaoVien", "Index", "QLGiaoViens")</li>
-                    <li>@Html.ActionLink("ROLE", "Index", "Roles")</li>
-                    <li>@Html.ActionLink("Register", "Register", "Accounts", new { Area = "" }, new { @class = "navbar-brand" })</li>
-                    <li>@Html.ActionLink("Login", "Login", "Accounts", new { Area = "" }, new { @class = "navbar-brand" })</li>
-                    <li>@Html.ActionLink("Logout", "Logout", "Accounts", new { Area = "" }, new { @class = "navbar-brand" })</li>
-                </ul>
-            </div>
+            @*<div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>*@
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("Lớp ", "Index", "QLLops")</li>
+                <li>@Html.ActionLink("Môn Học", "Index", "QLMonHocs")</li>
+                <li>@Html.ActionLink("Điểm", "Index", "Diemhocsinhs")</li>
+                <li>@Html.ActionLink("Học Sinh", "Index", "QLHocSinhs")</li>
+                <li>@Html.ActionLink("Giáo Viên", "Index", "QLGiaoViens")</li>
+                <li>@Html.ActionLink("Phân Quyền", "Index", "Roles")</li>
+                <li>@Html.ActionLink("Tạo Tài Khoản", "Register", "Accounts")</li>
+                <li>@Html.ActionLink("Đăng Nhập", "Login", "Accounts")</li>
+                <li>@Html.ActionLink("Đăng Xuất", "Logout", "Accounts")</li>
+                <li>
+            </ul>
         </div>
+    </div>
     </div>
     <div class="container body-content">
         @RenderBody()
