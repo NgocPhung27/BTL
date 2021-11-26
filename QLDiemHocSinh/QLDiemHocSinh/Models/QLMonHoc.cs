@@ -12,9 +12,14 @@ namespace QLDiemHocSinh.Models
     public class QLMonHoc
     {
         [Key]
+        [Required(ErrorMessage = "Mã Môn không được để trống !!!")]
+        [Display(Name = "Mã môn học")]
         public string MaMH { get; set; }
+        [Required(ErrorMessage = "Tên Môn không được để trống !!!")]
+        [Display(Name = "Tên môn học")]
         public string TenMH { get; set; }
         [AllowHtml]
+        [Display(Name = "Ghi chú")]
         public string GhiChu { get; set; }
     }
 }

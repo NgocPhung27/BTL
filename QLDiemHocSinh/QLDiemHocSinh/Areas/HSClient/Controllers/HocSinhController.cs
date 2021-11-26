@@ -4,12 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace QLDiemHocSinh.Areas.GVClient.Controllers
+namespace QLDiemHocSinh.Areas.HSClient.Controllers
 {
-    [Authorize(Roles = "GV")]
-    public class HomeGVController : Controller
+    [Authorize (Roles ="HS")]
+    public class HocSinhController : Controller
     {
-        // GET: GVClient/HomeGV
+        // GET: HSClient/HocSinh
         public ActionResult Index()
         {
             return View();

@@ -12,11 +12,18 @@ namespace QLDiemHocSinh.Models
     public class QLLop
     {     
         [Key]
+        [Required(ErrorMessage = "Mã Lớp không được để trống !!!")]
+        [Display(Name = "Mã Lớp")]
         public string MaLop { get; set; }
+        [Required(ErrorMessage = "Tên Lớp không được để trống !!!")]
+        [Display(Name = "Tên Lớp")]
         public string TenLop { get; set; }
+        [Display(Name = "Niên Khóa")]
         public string NienKhoa { get; set; }
+        [Display(Name = "Sĩ Số")]
         public string SiSo { get; set; }
         [AllowHtml]
+        [Display(Name = "Ghi Chú")]
         public string GhiChu { get; set; }
     }
 }

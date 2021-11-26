@@ -22,6 +22,6 @@ namespace QLDiemHocSinh.Models
         [Display(Name = "Phân Quyền")]
         [Required(ErrorMessage = "Phân Quyền không được để trống !!!")]
         public string RoleID { get; set; }
-        public string UserName { get; internal set; }
+        //public string UserName { get; internal set; }
     }
 }

@@ -130,9 +130,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admins\AdminsAreaRegistration.cs" />
     <Compile Include="Areas\Admins\Controllers\HomeAdminController.cs" />
-    <Compile Include="Areas\GVClient\Controllers\HomeGVController.cs" />
-    <Compile Include="Areas\GVClient\Controllers\QLGiaoViensClientController.cs" />
-    <Compile Include="Areas\GVClient\GVClientAreaRegistration.cs" />
+    <Compile Include="Areas\HSClient\Controllers\HocSinhController.cs" />
     <Compile Include="Areas\HSClient\HSClientAreaRegistration.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\DiemHocSinhsController.cs" />
@@ -181,6 +179,14 @@
     <Compile Include="Migrations\202111170302490_%27create_table_roles%27.Designer.cs">
       <DependentUpon>202111170302490_%27create_table_roles%27.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111210641114_1.cs" />
+    <Compile Include="Migrations\202111210641114_1.Designer.cs">
+      <DependentUpon>202111210641114_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111260608456_kingkong.cs" />
+    <Compile Include="Migrations\202111260608456_kingkong.Designer.cs">
+      <DependentUpon>202111260608456_kingkong.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AutoGenerateKey.cs" />
@@ -208,24 +214,16 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admins\Views\web.config" />
-    <Content Include="Areas\GVClient\Views\web.config" />
     <Content Include="Areas\HSClient\Views\web.config" />
-    <Content Include="Areas\Admins\Views\QLGiaoViens\Create.cshtml" />
-    <Content Include="Areas\Admins\Views\QLGiaoViens\Delete.cshtml" />
-    <Content Include="Areas\Admins\Views\QLGiaoViens\Details.cshtml" />
-    <Content Include="Areas\Admins\Views\QLGiaoViens\Edit.cshtml" />
-    <Content Include="Areas\Admins\Views\QLGiaoViens\Index.cshtml" />
-    <Content Include="Areas\GVClient\Views\QLGiaoViensClient\Create.cshtml" />
-    <Content Include="Areas\GVClient\Views\QLGiaoViensClient\Delete.cshtml" />
-    <Content Include="Areas\GVClient\Views\QLGiaoViensClient\Details.cshtml" />
-    <Content Include="Areas\GVClient\Views\QLGiaoViensClient\Edit.cshtml" />
-    <Content Include="Areas\GVClient\Views\QLGiaoViensClient\Index.cshtml" />
     <Content Include="Scripts\ckeditor\adapters\jquery.js" />
     <Content Include="Scripts\ckeditor\CHANGES.html" />
     <Content Include="Scripts\ckeditor\ckeditor.asp" />
     <Content Include="Scripts\ckeditor\ckeditor.js" />
     <Content Include="Scripts\ckeditor\ckeditor.pack" />
-    <Content Include="Areas\Admins\Views\_LayoutAdmin.cshtml" />
+    <Content Include="Areas\Admins\Views\Shared\_LayoutADM.cshtml" />
+    <Content Include="Areas\Admins\Views\HomeAdmin\Index.cshtml" />
+    <Content Include="Areas\HSClient\Views\Shared\_LayoutHS.cshtml" />
+    <Content Include="Areas\HSClient\Views\HocSinh\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\ckeditor\ckeditor.php" />
     <Content Include="Scripts\ckeditor\ckeditor_basic.js" />
@@ -619,26 +617,18 @@
     <Content Include="Views\QLGiaoViens\Details.cshtml" />
     <Content Include="Views\QLGiaoViens\Edit.cshtml" />
     <Content Include="Views\QLGiaoViens\Index.cshtml" />
-    <Content Include="Views\Accounts\Register.cshtml" />
-    <Content Include="Views\Accounts\Login.cshtml" />
     <Content Include="Views\Roles\Create.cshtml" />
     <Content Include="Views\Roles\Delete.cshtml" />
     <Content Include="Views\Roles\Details.cshtml" />
     <Content Include="Views\Roles\Edit.cshtml" />
     <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\Accounts\Login.cshtml" />
+    <Content Include="Views\Accounts\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admins\Data\" />
-    <Folder Include="Areas\Admins\Views\HomeAdmin\" />
-    <Folder Include="Areas\Admins\Views\Shared\" />
-    <Folder Include="Areas\GVClient\Data\" />
-    <Folder Include="Areas\GVClient\Views\HomeAdmin\" />
-    <Folder Include="Areas\GVClient\Views\HomeGV\" />
-    <Folder Include="Areas\GVClient\Views\Shared\" />
-    <Folder Include="Areas\HSClient\Controllers\" />
     <Folder Include="Areas\HSClient\Data\" />
-    <Folder Include="Areas\HSClient\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -680,6 +670,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111170302490_%27create_table_roles%27.resx">
       <DependentUpon>202111170302490_%27create_table_roles%27.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111210641114_1.resx">
+      <DependentUpon>202111210641114_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111260608456_kingkong.resx">
+      <DependentUpon>202111260608456_kingkong.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -42,7 +42,7 @@ namespace QLDiemHocSinh.Models
                 var userRoles = (from user in db.Accounts
                                  join role in db.Roles
                                  on user.RoleID equals role.RoleID
-                                 where user.UserName == username
+                                 where user.UseName == username
                                  select role.RoleID).ToArray();
                 return userRoles;
             }
