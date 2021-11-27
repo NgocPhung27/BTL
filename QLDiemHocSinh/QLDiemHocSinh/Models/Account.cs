@@ -12,6 +12,7 @@ namespace QLDiemHocSinh.Models
         [Display(Name = "Tên tài khoản")]
         [Required(ErrorMessage = "Tên tài khoản không được để trống !")]
         public string UseName { get; set; }
+
         [Display(Name = "Mật Khẩu")]
         [Required(ErrorMessage = "Mật Khẩu không được để trống !")]
         //Dùng để biến kí tự thành "".""

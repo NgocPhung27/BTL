@@ -12,6 +12,9 @@
 </p>
 <table class="table">
     <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.QLLop.TenLop)
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => model.MaHS)
         </th>
@@ -31,9 +34,6 @@
             @Html.DisplayNameFor(model => model.DiaChi)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Lop)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.AnhHS)
         </th>
         <th></th>
@@ -41,6 +41,9 @@
 
 @foreach (var item in Model) {
 <tr>
+    @*<td>
+            @Html.DisplayFor(modelItem => item.QLLop.TenLop)
+        </td>*@
     <td>
         @Html.DisplayFor(modelItem => item.MaHS)
     </td>
@@ -60,10 +63,7 @@
         @Html.DisplayFor(modelItem => item.DiaChi)
     </td>
     <td>
-        @Html.DisplayFor(modelItem => item.Lop)
-    </td>
-    <td>
-        @Html.Raw( item.AnhHS)
+        @Html.Raw(item.AnhHS)
     </td>
     <td>
         @Html.ActionLink("Edit", "Edit", new { id = item.MaHS }) |

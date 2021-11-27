@@ -25,5 +25,7 @@ namespace QLDiemHocSinh.Models
         [AllowHtml]
         [Display(Name = "Ghi Chú")]
         public string GhiChu { get; set; }
+        public ICollection<QLHocSinh> QLHocSinhs { get; set; }
+        public ICollection<QLGiaoVien> QLGiaoViens { get; set; }
     }
 }

@@ -187,6 +187,14 @@
     <Compile Include="Migrations\202111260608456_kingkong.Designer.cs">
       <DependentUpon>202111260608456_kingkong.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111261444296_hihi.cs" />
+    <Compile Include="Migrations\202111261444296_hihi.Designer.cs">
+      <DependentUpon>202111261444296_hihi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202111261503131_2.cs" />
+    <Compile Include="Migrations\202111261503131_2.Designer.cs">
+      <DependentUpon>202111261503131_2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AutoGenerateKey.cs" />
@@ -676,6 +684,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111260608456_kingkong.resx">
       <DependentUpon>202111260608456_kingkong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111261444296_hihi.resx">
+      <DependentUpon>202111261444296_hihi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111261503131_2.resx">
+      <DependentUpon>202111261503131_2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

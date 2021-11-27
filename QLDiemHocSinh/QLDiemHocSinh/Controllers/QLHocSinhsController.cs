@@ -9,7 +9,7 @@ using System.Web.Mvc;
 using QLDiemHocSinh.Models;
 
 namespace QLDiemHocSinh.Controllers
-{ 
+{
     public class QLHocSinhsController : Controller
     {
         private QLDiemHocSinhDbContext db = new QLDiemHocSinhDbContext();
@@ -18,47 +18,8 @@ namespace QLDiemHocSinh.Controllers
         // GET: QLHocSinhs
         public ActionResult Index()
         {
-            return View(db.HocSinhs.ToList());
-        }
-        public ActionResult Create()
-        {
-            var hsID = "";
-            var countHS = db.HocSinhs.Count();
-            if (countHS == 0)
-            {
-                hsID ="HS001";
-            }
-            else
-            {
-                //Lấy giá trị MaHS moi nhat
-                var MaHS = db.HocSinhs.ToList().OrderByDescending(m => m.MaHS).FirstOrDefault().MaHS;
-                //sinh MaHS tự dộng
-                hsID = aukey.GenerateKey(MaHS);
-            }
-            ViewBag.MaHS = hsID;
-            return View();
-        }
-        [HttpPost]
-        public ActionResult Create(QLHocSinh hs)
-
-        {
-            var countHS = db.HocSinhs.Count();
-            if (countHS == 0)
-            {
-                hs.MaHS ="HS001";
-            }
-            else
-            {
-                //Lấy giá trị MaHS moi nhat
-                var MaHS = db.HocSinhs.ToList().OrderByDescending(m => m.MaHS).FirstOrDefault().MaHS;
-                //sinh MaHS tự dộng
-                hs.MaHS = aukey.GenerateKey(MaHS);
-            }
-            //luu thông tin vao database
-            db.HocSinhs.Add(hs);
-            db.SaveChanges();
-
-            return RedirectToAction("Index");
+            var hocSinhs = db.HocSinhs.Include(q => q.QLLop);
+            return View(hocSinhs.ToList());
         }
 
         // GET: QLHocSinhs/Details/5
@@ -76,6 +37,41 @@ namespace QLDiemHocSinh.Controllers
             return View(qLHocSinh);
         }
 
+        // GET: QLHocSinhs/Create
+        public ActionResult Create()
+        {
+            ViewBag.MaLop = new SelectList(db.Lops, "MaLop", "TenLop");
+            return View();
+        }
+
+        // POST: QLHocSinhs/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "MaHS,TenHS,GioiTinh,NgaySinh,SoDienThoai,DiaChi,AnhHS,MaLop")] QLHocSinh hs)
+        {
+            var countHS = db.HocSinhs.Count();
+            if (countHS == 0)
+            {
+                hs.MaHS = "HS001";
+            }
+            else
+            {
+                //Lấy giá trị MaHS moi nhat
+                var MaHS = db.HocSinhs.ToList().OrderByDescending(m => m.MaHS).FirstOrDefault().MaHS;
+                //sinh MaHS tự dộng
+                hs.MaHS = aukey.GenerateKey(MaHS);
+            } 
+                //luu thông tin vao database
+                db.HocSinhs.Add(hs);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+
+            ViewBag.MaLop = new SelectList(db.Lops, "MaLop", "TenLop", hs.MaLop);
+            return View(hs);
+        }
+
         // GET: QLHocSinhs/Edit/5
         public ActionResult Edit(string id)
         {
@@ -88,6 +84,7 @@ namespace QLDiemHocSinh.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.MaLop = new SelectList(db.Lops, "MaLop", "TenLop", qLHocSinh.MaLop);
             return View(qLHocSinh);
         }
 
@@ -96,7 +93,7 @@ namespace QLDiemHocSinh.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaHS,TenHS,GioiTinh,NgaySinh,SoDienThoai,DiaChi,Lop,AnhHS")] QLHocSinh qLHocSinh)
+        public ActionResult Edit([Bind(Include = "MaHS,TenHS,GioiTinh,NgaySinh,SoDienThoai,DiaChi,AnhHS,MaLop")] QLHocSinh qLHocSinh)
         {
             if (ModelState.IsValid)
             {
@@ -104,6 +101,7 @@ namespace QLDiemHocSinh.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.MaLop = new SelectList(db.Lops, "MaLop", "TenLop", qLHocSinh.MaLop);
             return View(qLHocSinh);
         }
 

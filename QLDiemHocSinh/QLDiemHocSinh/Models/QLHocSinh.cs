@@ -26,11 +26,14 @@ namespace QLDiemHocSinh.Models
         public string SoDienThoai { get; set; }
         [Display(Name = "Địa chỉ")]
         public string DiaChi { get; set; }
-        [Display(Name = "Lớp")]
-        public string Lop { get; set; }
+
         [AllowHtml]
         [Display(Name = "Ảnh học sinh")]
         public string AnhHS { get; set; }
+
+        [Display(Name = "Mã Lớp")]
+        public string MaLop { get; set; }
+        public QLLop QLLop { get; set; }
     }
 
 }
